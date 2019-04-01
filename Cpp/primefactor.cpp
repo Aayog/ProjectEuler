@@ -30,8 +30,8 @@ int main(int argc, char **argv) {
         cout << "Invalid usage of ./primefactor .\nUsage: ./primefactor number" << endl;
         return 1;
     }
-
-    for (long i = 2; i < n/2+1; i++) {
+    long i =2;
+    for (; i < n/2+1; i++) {
         if (isprime(i)) {
             while (n % i == 0) {
                 n /= i;
@@ -39,5 +39,5 @@ int main(int argc, char **argv) {
             }
         }
     }
-    cout << "Largest prime factor : "  << n  << endl;
+    cout << "Largest prime factor : "  << ((n == 1)? --i : n)  << endl;
 }
