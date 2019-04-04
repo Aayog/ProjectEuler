@@ -30,6 +30,10 @@ int main(int argc, char **argv){
         cout << "Invalid usage of ./primefactor .\nUsage: ./primefactor number" << endl;
         return 1;
     }
+    if(isprime(n)){
+    	cout << n << " is a prime number!" << endl;
+	return 0;
+    }
     long i = 2;
     for (i = 2; i < n/2+1; i++){
         if (isprime(i)){
