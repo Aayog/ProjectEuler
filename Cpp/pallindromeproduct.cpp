@@ -1,30 +1,30 @@
 #include <iostream>
 
-using namespace std;
-
 bool ispallindrome(int num){
-    int temp = num;
-    int b=0,c=0;
-    while(temp != 0){
-        b = temp % 10;
-        c = c * 10 + b;
-        temp /= 10;
+    int reversed = 0;
+    int original = num;
+    while(num > 0){
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
     }
-    return (c == num);
+    return (reversed == original);
 }
 
 int main(void){
     int highest = 0;
-    for (int i = 100; i < 1000; i++){
-        for (int j = 100; j < 1000; j++){
+    for (int i = 999; i >= 100; i--){
+        // if when the highest possible product is less than the current highest, break
+        if (i * 999 < highest){
+            break;
+        }
+        for (int j = 999; j >= 100; j--){
             int prod = i * j; 
+            if (prod < highest) break; // if the product is less than the highest, break
             if (ispallindrome(prod)){
-                if (prod > highest){
-                    highest = prod;
-                }
+                highest = prod;
             }
         }
     }
-    cout << highest <<endl ;
+    std::cout << highest << std::endl ;
 
 }
