@@ -1,8 +1,6 @@
 #include <iostream>
 
-using namespace std;
-
-bool ismultiple(long num, long prod = 20){
+bool isMultiple(long num, long prod = 20){
     for (long i = 2; i < prod; i++){
         if (num % i != 0){
             return false;
@@ -16,7 +14,7 @@ int main(void){
     long index =  2;
     long smallest = max_iter;
     while(index < max_iter){
-        if(ismultiple(index)){
+        if(isMultiple(index)){
             if (index < smallest){
                 smallest = index;
                 break;
@@ -27,6 +25,5 @@ int main(void){
     if (smallest == max_iter){
         return 0;
     }
-    cout << smallest << endl;
-
+    std::cout << "The smallest positive number divisible by all numbers from 1 to 20 is: " << smallest << std::endl;
 }
